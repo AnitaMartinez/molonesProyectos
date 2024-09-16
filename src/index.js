@@ -19,7 +19,7 @@ async function getDBConnection() {
     return connection;
 }
 
-const port = process.env.PORT;
+const port = 5001;
 server.listen(port, () => {
     console.log("Server is running on port " + port);
 });
