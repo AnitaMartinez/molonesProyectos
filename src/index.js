@@ -10,10 +10,11 @@ server.set("view engine", "ejs");
 
 async function getDBConnection() {
     const connection = await mysql.createConnection({
-        host: "localhost",
+        host: "otwjh.h.filess.io",
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
-        database: "adalab",
+        database: "proyectosMolones2_fruitsent",
+        port: 3307
     });
     connection.connect();
     return connection;
