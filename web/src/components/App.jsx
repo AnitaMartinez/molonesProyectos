@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../scss/App.scss";
 
 function App() {
@@ -10,6 +10,11 @@ function App() {
         // Aquí puedes manejar el envío del formulario, como enviarlo a una API o mostrar un mensaje.
         console.log("Nuevo proyecto:", { projectName, description });
     };
+
+    useEffect(() => {
+        fetch("http://localhost:5001/api/projects")
+            .then()
+    })
 
     return (
         <div>

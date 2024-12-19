@@ -11,8 +11,8 @@ server.set("view engine", "ejs");
 async function getDBConnection() {
     const connection = await mysql.createConnection({
         host: "otwjh.h.filess.io",
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
+        user: process.env.USER_DB,
+        password: process.env.PASSWORD_DB,
         database: "proyectosMolones2_fruitsent",
         port: 3307
     });
@@ -20,7 +20,7 @@ async function getDBConnection() {
     return connection;
 }
 
-const port = 5001;
+const port = process.env.PORT;
 server.listen(port, () => {
     console.log("Server is running on port " + port);
 });
@@ -71,5 +71,7 @@ server.get("detail/:idProject", async (req, res) => {
     res.render("detail", { project: result[0] });
 });
 
-const staticServer = "./src/public-react";
+
+// servir estáticamente el proyecto de React
+const staticServer = "./web/dist";
 server.use(express.static(staticServer));
